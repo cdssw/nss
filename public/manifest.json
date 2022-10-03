@@ -1,0 +1,16 @@
+{
+  "short_name": "NSS",
+  "name": "Newsong search by Elasticsearch",
+  "start_url": ".",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icons/favicon-170x127.png",
+      "sizes": "170x127",
+      "type": "image/png"
+    }
+  ]
+}

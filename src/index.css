@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'AppleSDGothicNeoL00';
+  src: url('./styles/fonts/AppleSDGothicNeoL.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoR00';
+  src: url('./styles/fonts/AppleSDGothicNeoR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoB00';
+  src: url('./styles/fonts/AppleSDGothicNeoB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoT00';
+  src: url('./styles/fonts/AppleSDGothicNeoT.ttf') format('truetype');
+}
+
+html, body, #root, .App {
+  background-color: white;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'AppleSDGothicNeoL00', 'AppleSDGothicNeoR00', 'AppleSDGothicNeoB00', 'AppleSDGothicNeoT00', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  font-size: 1rem !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'AppleSDGothicNeoL00', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
