@@ -15,17 +15,18 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
   },
   songTitle: {
+    top: '31px',
+    color: '#707070',
+    fontSize: '13px'
+  },
+  songContent: {
     fontFamily: 'AppleSDGothicNeoB00',
     color: '#3e3e3e',
     textOverflow: 'ellipsis',
     width: '100%',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-  },
-  songContent: {
-    top: '31px',
-    color: '#707070',
-    fontSize: '12px'
+    fontSize: '14px'
   },
 }));
 
@@ -35,8 +36,8 @@ export default function Card({item}) {
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <div className={classes.songTitle}>{item.title}</div>
-        <div className={classes.songContent}>{item.address.sgg}</div>
+        <div className={classes.songContent}>{item.highlight.songContent ? item.highlight.songContent : item.source.songContent}</div>
+        <div className={classes.songTitle}>새노래 {item.source.songNo}장 {item.highlight.songTitle ? item.highlight.songTitle : item.source.songTitle}</div>
       </div>
     </div>
   );

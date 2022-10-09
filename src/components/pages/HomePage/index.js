@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { PageTemplate, Header, CardList, Search } from "components";
 import { useHistory, Redirect } from "react-router-dom";
-import * as Meet from "../../../services/Meet";
+import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
 
 export default function HomePage() {
@@ -40,14 +40,22 @@ export default function HomePage() {
     if(e.key !== 'Enter') return;
     setParam({
       ...param,
-      title: search
+      query: search,
+      preTags: "<b>",
+      postTags: "</b>",
+      searchField: ["songTitle", "songContent"],
+      sort: "songNo"
     });
   }
 
   const handleSearchClick = e => {
     setParam({
       ...param,
-      title: search
+      query: search,
+      preTags: "<b>",
+      postTags: "</b>",
+      searchField: ["songTitle", "songContent"],
+      sort: "songNo"
     });
   }
 
@@ -56,7 +64,7 @@ export default function HomePage() {
       setLoading(true);
       try {
         const p = init === 0 ? init : page;
-        const response = await Meet.getMeetSearch({body: param, page: p, size: size, sort: 'id,desc'});
+        const response = await Newsong.postMultiMatchQuery({token: token, body: param, page: p, size: size});
         const data = response.data.content;
         setPage(p + 1); // infinite scroll시 다음페이지 조회
         setItems(init === 0 ? data : items.concat(data));
