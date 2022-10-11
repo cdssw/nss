@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    padding: "0 0 5px",
+    padding: "0 20px 5px",
   },
   placeWrap: {
     marginRight: '5px',
