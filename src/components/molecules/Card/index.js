@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     fontSize: '14px'
   },
+  highlight: {
+    color: 'red',
+    fontweight: 'bold',
+  }
 }));
 
 export default function Card({item}) {
@@ -36,8 +40,24 @@ export default function Card({item}) {
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <div className={classes.songContent}>{item.highlight.songContent ? item.highlight.songContent : item.source.songContent}</div>
-        <div className={classes.songTitle}>새노래 {item.source.songNo}장 {item.highlight.songTitle ? item.highlight.songTitle : item.source.songTitle}</div>
+        <div className={classes.songContent}>
+          {item.highlight.songContent
+            ? item.highlight.songContent.split('<b>').map((m, index) => {
+              if(m.split("</b>").length > 1) {
+                return (
+                  <Fragment key={index}>
+                    <span className={classes.highlight}>{m.split("</b>")[0]}</span>
+                    {m.split("</b>")[1]}
+                  </Fragment>
+                )
+              } else {
+                return m;
+              }
+            })
+            : item.source.songContent
+          }
+        </div>
+        <div className={classes.songTitle}>새노래 {item.source.songNo}장 {item.source.songTitle}</div>
       </div>
     </div>
   );

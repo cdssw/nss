@@ -17,7 +17,28 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
   },
+  headerWrapSearch: {
+    backgroundColor: theme.color.white,
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: 'center',
+    position: 'fixed',
+    height: '100px',
+    zIndex: '1000',
+    top: 0,
+    left: 0,
+    right: 0,
+  },
   contentWrap: {
+  },
+  contentSearch: {
+    margin: '100px auto 0',
+    flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    maxWidth: '600px',
+    padding: '0 20px',
   },
   content: {
     margin: '50px auto 0',
@@ -45,23 +66,42 @@ const useStyles = makeStyles((theme) => ({
 export default function PageTemplate(props) {
   const classes = useStyles();
 
-  const content = props.imageWrap ? classes.imageContent : classes.content;
-
   return (
     <div className={classes.root}>
-      <header className={classes.headerWrap}>
-        {props.header}
-      </header>
-      <section className={classes.contentWrap}>
-        <div className={content}>
-          {props.loading &&
-            <div className={classes.loading}>
-              <CircularProgress size={30} />
+      {props.search ?
+        <>
+          <header className={classes.headerWrapSearch}>
+            {props.header}
+            {props.search}
+          </header>
+          <section className={classes.contentWrap}>
+            <div className={classes.contentSearch}>
+              {props.loading &&
+                <div className={classes.loading}>
+                  <CircularProgress size={30} />
+                </div>
+              }
+              {props.children}
             </div>
-          }
-          {props.children}
-        </div>
-      </section>
+          </section>
+        </>
+        :
+        <>
+          <header className={classes.headerWrap}>
+            {props.header}
+          </header>
+          <section className={classes.contentWrap}>
+            <div className={content}>
+              {props.loading &&
+                <div className={classes.loading}>
+                  <CircularProgress size={30} />
+                </div>
+              }
+              {props.children}
+            </div>
+          </section>
+        </>
+      }
     </div>
   );
 }

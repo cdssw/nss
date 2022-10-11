@@ -13,8 +13,8 @@ export default function HomePage() {
   const [param, setParam] = useState({});
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [alarmOpen, setAlarmOpen] = useState(false);
-  const [alarmContent, setAlarmContent] = useState('');
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertContent, setAlertContent] = useState('');
   const size = 20;
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
 
