@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   highlight: {
     color: 'red',
-    fontweight: 'bold',
+    fontWeight: 'bold',
   }
 }));
 
