@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import { PageTemplate, Header, CardList, Search } from "components";
+import { PageTemplate, Header, CardList, Search, Alert } from "components";
 import { useHistory, Redirect } from "react-router-dom";
 import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
@@ -13,6 +13,8 @@ export default function HomePage() {
   const [param, setParam] = useState({});
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [alarmOpen, setAlarmOpen] = useState(false);
+  const [alarmContent, setAlarmContent] = useState('');
   const size = 20;
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
 
@@ -43,7 +45,7 @@ export default function HomePage() {
       query: search,
       preTags: "<b>",
       postTags: "</b>",
-      searchField: ["songTitle", "songContent"],
+      searchField: ["songContent"],
       sort: "songNo"
     });
   }
@@ -54,7 +56,7 @@ export default function HomePage() {
       query: search,
       preTags: "<b>",
       postTags: "</b>",
-      searchField: ["songTitle", "songContent"],
+      searchField: ["songContent"],
       sort: "songNo"
     });
   }
@@ -69,8 +71,15 @@ export default function HomePage() {
         setPage(p + 1); // infinite scroll시 다음페이지 조회
         setItems(init === 0 ? data : items.concat(data));
       } catch(error) {
+        if(error.response.data.message === "V_00001") {
+          setAlarmContent(error.response.data.message);
+          setAlarmOpen(true);
+        }
         Utils.alertError(error);
       } finally {
+        if(init === 0) {
+          window.scrollTo(0, 0);
+        }
         setLoading(false);
       }
     }
@@ -85,13 +94,26 @@ export default function HomePage() {
 
   if(token === null) return <Redirect to='/login' />
   return (
-    <PageTemplate header={<Header userInfo={userInfo} path={path} onLogout={handleLogout} />} loading={loading}>
-      <Search search={search} login={login}
-        onKeyPress={handleKeyPressSearch}
-        onSearch={handleSearch}
-        onSearchClick={handleSearchClick}
-      />
+    <PageTemplate 
+      header={<Header userInfo={userInfo} path={path} onLogout={handleLogout} />} 
+      search={
+        <Search search={search} login={login}
+          onKeyPress={handleKeyPressSearch}
+          onSearch={handleSearch}
+          onSearchClick={handleSearchClick}
+        />
+      }
+      loading={loading}
+    >
       <CardList path="/" fetchMoreData={fetchMoreData} items={items} />
+      <Alert
+        state={alertOpen}
+        onClose={() => {
+          setAlertContent('');
+          setAlertOpen(false);
+        }}
+        content={alertContent}
+      />      
     </PageTemplate>
   );
 }
