@@ -8,4 +8,4 @@ export const logout = "/images/logout.svg";
 
 // img
 export const imgLogo2x = '/images/logo.png';
-export const imgLogoLarge2x = '/images/logo.png';
+export const imgLogoLarge2x = '/images/logo-2x.png';
