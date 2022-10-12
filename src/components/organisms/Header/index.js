@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import classnames from "classnames";
 import * as resources from "constants/resources";
@@ -52,12 +52,7 @@ export default function Header({userInfo, path, onLogout}) {
       <div className={classes.space}></div>
       <div>
         <Link to={path}>
-          <Avatar
-            classes={{root: avatarRoot, img: classes.avatarImg}}
-            onClick={onLogout}
-          >
-            <img src={resources.logout} alt="logout" />
-          </Avatar>
+          <Button onClick={onLogout}>로그아웃</Button>
         </Link>
       </div>
     </div>
