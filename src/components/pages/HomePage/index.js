@@ -69,11 +69,14 @@ export default function HomePage() {
         setPage(p + 1); // infinite scroll시 다음페이지 조회
         setItems(init === 0 ? data : items.concat(data));
       } catch(error) {
+        Utils.alertError(error);
+        if(error.response.status === 401) {
+          localStorage.removeItem('token');
+        }
         if(error.response.data.message === "V_00001") {
           setAlarmContent(error.response.data.message);
           setAlarmOpen(true);
         }
-        Utils.alertError(error);
       } finally {
         if(init === 0) {
           window.scrollTo(0, 0);
