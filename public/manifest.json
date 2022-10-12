@@ -8,47 +8,47 @@
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/icons/apple-icon-57x57.png",
+      "src": "/icons/favicon-57.png",
       "sizes": "57x57",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-60x60.png",
+      "src": "/icons/favicon-60.png",
       "sizes": "60x60",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-72x72.png",
+      "src": "/icons/favicon-72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-76x76.png",
+      "src": "/icons/favicon-76.png",
       "sizes": "76x76",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-114x114.png",
+      "src": "/icons/favicon-114.png",
       "sizes": "114x114",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-120x120.png",
+      "src": "/icons/favicon-120.png",
       "sizes": "120x120",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-144x144.png",
+      "src": "/icons/favicon-144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-152x152.png",
+      "src": "/icons/favicon-152.png",
       "sizes": "152x152",
       "type": "image/png"
     },    
     {
-      "src": "/icons/favicon-96x96.png",
+      "src": "/icons/favicon-96.png",
       "sizes": "96x96",
       "type": "image/png"
     }
