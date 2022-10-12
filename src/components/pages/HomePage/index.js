@@ -45,8 +45,7 @@ export default function HomePage() {
       query: search,
       preTags: "<b>",
       postTags: "</b>",
-      searchField: ["songContent"],
-      sort: "songNo"
+      searchField: ["songContent"]
     });
   }
 
@@ -56,8 +55,7 @@ export default function HomePage() {
       query: search,
       preTags: "<b>",
       postTags: "</b>",
-      searchField: ["songContent"],
-      sort: "songNo"
+      searchField: ["songContent"]
     });
   }
 
