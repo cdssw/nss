@@ -8,8 +8,8 @@
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/icons/favicon-170x127.png",
-      "sizes": "170x127",
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "96x96",
       "type": "image/png"
     }
   ]
