@@ -91,7 +91,7 @@ export default function PageTemplate(props) {
             {props.header}
           </header>
           <section className={classes.contentWrap}>
-            <div className={content}>
+            <div className={classes.content}>
               {props.loading &&
                 <div className={classes.loading}>
                   <CircularProgress size={30} />

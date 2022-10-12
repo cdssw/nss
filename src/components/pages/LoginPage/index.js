@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Authorization from "../../../services/Authorization";
 import { LoginTemplate, LoginForm, Alert } from "components";
 import { Redirect } from "react-router-dom";
@@ -11,6 +11,10 @@ export default function LoginPage() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertContent, setAlertContent] = useState('');
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleInput = (event) => {
     setLoginData({

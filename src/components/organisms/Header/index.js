@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import classnames from "classnames";
 import * as resources from "constants/resources";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,8 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header({userInfo, path, onLogout}) {
   const classes = useStyles();
-
-  const avatarRoot = classnames(classes.avatarRoot, userInfo && classes.avatarColor);
 
   return (
     <div className={classes.root}>

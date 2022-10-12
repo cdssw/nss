@@ -74,8 +74,8 @@ export default function HomePage() {
           localStorage.removeItem('token');
         }
         if(error.response.data.message === "V_00001") {
-          setAlarmContent(error.response.data.message);
-          setAlarmOpen(true);
+          setAlertContent(error.response.data.message);
+          setAlertOpen(true);
         }
       } finally {
         if(init === 0) {

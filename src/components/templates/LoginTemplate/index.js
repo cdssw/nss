@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     zIndex: 1,
   },
+  stretch: {
+    flexGrow: 1,
+  }
 }));
 
 export default function LoginTemplate(props) {
@@ -70,6 +73,7 @@ export default function LoginTemplate(props) {
       <div className={classes.logoWrap}>
         <img className={classes.logo} src={resources.imgLogoLarge2x} alt="logo" />
       </div>
+      <div className={classes.stretch}></div>
       <div className={classes.contentWrap}>
         <section className={classes.content}>
           {props.loading &&
