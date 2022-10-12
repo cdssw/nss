@@ -7,5 +7,5 @@ export const login = "/images/login.svg";
 export const logout = "/images/logout.svg";
 
 // img
-export const imgLogo2x = '/images/logo-2x.png';
-export const imgLogoLarge2x = '/images/logo_large-2x.png';
+export const imgLogo2x = '/images/logo.png';
+export const imgLogoLarge2x = '/images/logo.png';
