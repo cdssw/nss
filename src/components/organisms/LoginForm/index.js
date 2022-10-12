@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     fontFamily: 'AppleSDGothicNeoB00',
     fontSize: '1rem',
+    height: '40px',
   },
   inputRoot: {
     backgroundColor: 'white',
