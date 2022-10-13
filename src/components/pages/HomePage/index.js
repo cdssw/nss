@@ -6,7 +6,6 @@ import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
 import { Alert } from '@material-ui/lab';
 import { useLayoutEffect } from 'react';
-import { useCallback } from 'react';
 
 export default function HomePage() {
   const history = useHistory();
@@ -28,7 +27,7 @@ export default function HomePage() {
     }
   }, [history, token]);
 
-  const fetchMoreData = useCallback(async init => {
+  const fetchMoreData = async init => {
     if(Object.keys(param).length > 0) {
       setLoading(true);
       try {
@@ -53,13 +52,13 @@ export default function HomePage() {
         setLoading(false);
       }
     }
-  }, [page, items, param, token]);
+  }
 
   useLayoutEffect(e => {
-    if(page === 0) {
+    if(Object.keys(param).length > 0) {
       fetchMoreData(0);
     }
-  }, [page, fetchMoreData]);
+  }, [param]);
 
   useEffect(() => {
     return () => setLoading(false);
