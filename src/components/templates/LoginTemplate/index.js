@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
   logoWrap: {
+    flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
     padding: '50px',
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: '60px 20px',
+    padding: '0 20px',
     maxWidth: '600px',
   },
   footerWrap: {
@@ -83,6 +84,7 @@ export default function LoginTemplate(props) {
           {props.children}
         </section>
       </div>
+      <div className={classes.stretch}></div>
     </div>
   );
 }
