@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     boxSizing: 'border-box',
-    marginBottom: '10px',
+    marginBottom: '3px',
     borderRadius: '5px',
   },
   content: {
