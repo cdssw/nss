@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import ClearIcon from '@material-ui/icons/Clear';
-import { InputAdornment, TextField } from '@material-ui/core';
-import * as resources from "constants/resources";
+import { TextField } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
   },
   inputRoot: {
-    backgroundColor: 'white',
     borderRadius: '5px',
+  },
+  title: {
+    display: 'flex',
+    justifyContent: 'center',
+    color: 'rgba(255, 255, 255, 0.3)'
   }
 }));
 
@@ -32,17 +34,19 @@ export default function LoginForm({username, password, onInput, onLogin}) {
   }
   return (
     <div className={classes.root}>
+      <div className={classes.title}>NSS 로그인</div>
       <div className={classes.passwordWrap}>
         <TextField
-          type="password"
+          type="number"
           classes={{root: classes.inputRoot}}
           InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                {password !== '' && <ClearIcon color="action" onClick={() => onInput({target:{name: 'password', value: ''}})} />}
-                <img src={resources.eyeBlocked} alt="eyeBlocked" />
-              </InputAdornment>
-            ),
+            inputProps: {
+              inputMode: 'numeric',
+              style: {
+                textSecurity: 'disc',
+                WebkitTextSecurity: 'disc'
+              }
+            }
           }}
           fullWidth={true}
           variant="outlined"
@@ -53,7 +57,7 @@ export default function LoginForm({username, password, onInput, onLogin}) {
         />        
       </div>
       <div>
-        <Button classes={{label: classes.btn}} color='primary' variant="contained" fullWidth={true} onClick={onLogin}>LOGIN</Button>
+        <Button classes={{label: classes.btn}} color='primary' variant="contained" fullWidth={true} onClick={onLogin}>로그인</Button>
       </div>
     </div>
   );
