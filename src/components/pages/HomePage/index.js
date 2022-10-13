@@ -56,10 +56,10 @@ export default function HomePage() {
   }, [page, items, param, token]);
 
   useLayoutEffect(e => {
-    if(Object.keys(param).length > 0) {
+    if(page === 0) {
       fetchMoreData(0);
     }
-  }, [param, fetchMoreData]);
+  }, [page, fetchMoreData]);
 
   useEffect(() => {
     return () => setLoading(false);
