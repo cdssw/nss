@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     display: 'flex',
     alignItems: 'center',
-    maxWidth: '600px',
     padding: '0 20px',
   },
   logo: {
@@ -20,24 +19,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   userName: {
-    color: theme.color.green,
     paddingRight: '5px',
   },
-  avatarRoot: {
-    width: '35px',
-    height: '35px',
-    padding: '1px 1px 0 0',
-    border: '2px solid ' + theme.color.border,
-    backgroundColor: theme.color.gray,
-  },
-  avatarImg: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  avatarColor: {
-    backgroundColor: theme.color.green,
-  }
 }));
 
 export default function Header({userInfo, path, onLogout}) {

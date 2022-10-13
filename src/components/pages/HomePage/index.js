@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
-import { PageTemplate, Header, CardList, Search, Alert } from "components";
+import { PageTemplate, Header, CardList, Search } from "components";
 import { useHistory, Redirect } from "react-router-dom";
 import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
+import { Alert } from '@material-ui/lab';
 
 export default function HomePage() {
   const history = useHistory();
@@ -22,7 +23,34 @@ export default function HomePage() {
     if(token === null) {
       history.replace('/login');
     }
-  }, []);
+  }, [history, token]);
+
+  const fetchMoreData = async init => {
+    if(Object.keys(param).length > 0) {
+      setLoading(true);
+      try {
+        const p = init === 0 ? init : page;
+        const response = await Newsong.postMultiMatchQuery({token: token, body: param, page: p, size: size});
+        const data = response.data.content;
+        setPage(p + 1); // infinite scroll시 다음페이지 조회
+        setItems(init === 0 ? data : items.concat(data));
+      } catch(error) {
+        Utils.alertError(error);
+        if(error.response === undefined || error.response.status === 401) {
+          localStorage.removeItem('token');
+        }
+        if(error.response.data.message === "V_00001") {
+          setAlertContent(error.response.data.message);
+          setAlertOpen(true);
+        }
+      } finally {
+        if(init === 0) {
+          window.scrollTo(0, 0);
+        }
+        setLoading(false);
+      }
+    }
+  }
 
   useEffect(e => {
     if(Object.keys(param).length > 0) {
@@ -59,33 +87,6 @@ export default function HomePage() {
     });
   }
 
-  const fetchMoreData = async init => {
-    if(Object.keys(param).length > 0) {
-      setLoading(true);
-      try {
-        const p = init === 0 ? init : page;
-        const response = await Newsong.postMultiMatchQuery({token: token, body: param, page: p, size: size});
-        const data = response.data.content;
-        setPage(p + 1); // infinite scroll시 다음페이지 조회
-        setItems(init === 0 ? data : items.concat(data));
-      } catch(error) {
-        Utils.alertError(error);
-        if(error.response.status === 401) {
-          localStorage.removeItem('token');
-        }
-        if(error.response.data.message === "V_00001") {
-          setAlertContent(error.response.data.message);
-          setAlertOpen(true);
-        }
-      } finally {
-        if(init === 0) {
-          window.scrollTo(0, 0);
-        }
-        setLoading(false);
-      }
-    }
-  }
-
   const handleLogout = e => {
     localStorage.removeItem('token');
     history.push("/");
@@ -102,19 +103,13 @@ export default function HomePage() {
           onKeyPress={handleKeyPressSearch}
           onSearch={handleSearch}
           onSearchClick={handleSearchClick}
+          onClear={setSearch}
         />
       }
       loading={loading}
     >
       <CardList path="/" fetchMoreData={fetchMoreData} items={items} />
-      <Alert
-        state={alertOpen}
-        onClose={() => {
-          setAlertContent('');
-          setAlertOpen(false);
-        }}
-        content={alertContent}
-      />      
+      {alertOpen && <Alert severity="info">{alertContent}</Alert>}
     </PageTemplate>
   );
 }

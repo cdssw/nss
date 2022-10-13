@@ -6,22 +6,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     boxSizing: 'border-box',
     marginBottom: '10px',
-    border: '1px solid ' + theme.color.border,
     borderRadius: '5px',
   },
   content: {
     flexGrow: 1,
     boxSizing: 'border-box',
     padding: '10px',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.12)'
   },
   songTitle: {
     top: '31px',
-    color: '#707070',
     fontSize: '13px'
   },
   songContent: {
     fontFamily: 'AppleSDGothicNeoB00',
-    color: '#3e3e3e',
     textOverflow: 'ellipsis',
     width: '100%',
     overflow: 'hidden',

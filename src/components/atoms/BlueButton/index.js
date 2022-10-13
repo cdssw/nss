@@ -9,7 +9,6 @@ const BlueButton = withStyles((theme) => ({
     },
   },
   label: {
-    color: theme.color.white,
   }
 }))(Button);
 

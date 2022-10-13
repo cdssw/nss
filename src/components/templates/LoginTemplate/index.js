@@ -32,13 +32,11 @@ const useStyles = makeStyles((theme) => ({
     height: '129px',
   },
   contentWrap: {
-    flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
   },
   content: {
-    flexGrow: 1,
-    padding: '0 40px',
+    padding: '20px 20px',
     maxWidth: '600px',
   },
   footerWrap: {

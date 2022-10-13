@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as Authorization from "../../../services/Authorization";
-import { LoginTemplate, LoginForm, Alert } from "components";
+import { LoginTemplate, LoginForm } from "components";
 import { Redirect } from "react-router-dom";
+import { Alert } from '@material-ui/lab';
 
 export default function LoginPage() {
   const [loginData, setLoginData] = useState({
@@ -65,14 +66,7 @@ export default function LoginPage() {
         onInput={handleInput}
         password={loginData.password}
       />
-      <Alert
-        state={alertOpen}
-        onClose={() => {
-          setAlertContent('');
-          setAlertOpen(false);
-        }}
-        content={alertContent}
-      />
+      {alertOpen && <Alert severity="error">{alertContent}</Alert>}
     </LoginTemplate>
   );
 }

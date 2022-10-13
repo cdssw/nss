@@ -14,52 +14,9 @@ import { CssBaseline } from '@material-ui/core';
 const store = createStore(rootReducer, composeWithDevTools());
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#1E0073',
-    },
-    secondary: {
-      main: '#f73232',
-    },
-    default: {
-      main: '#cfcfcf',
-    },    
-  }, 
-  overrides: {
-    MuiOutlinedInput: {
-      root: {
-        width: '100%',
-        '&$focused $notchedOutline': {
-          borderColor: '#707070',
-          borderWidth: 1,
-        },
-      },
-      input: {
-        padding: '10px 10px',
-      },
-      inputMarginDense: {
-        paddingTop: '9px',
-        paddingBottom: '9px',
-      },
-    },
-    MuiSelect: {
-      selectMenu: {
-        height: '21px',
-        fontFamily: 'AppleSDGothicNeoL00'
-      }
-    },
-    MuiMenuItem: {
-      root: {
-        fontFamily: 'AppleSDGothicNeoL00'
-      }
-    }
+    type: "dark"
   },
-  color: {
-    green: '#1E0073',
-    red: '#f73232',
-    white: 'white',
-    border: '#cfcfcf',
-    gray: '#bfbfbf'
-  }
+  shadows: ["none"]
 });
 
 ReactDOM.render(

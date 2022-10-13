@@ -19,7 +19,6 @@
 }
 
 html, body, #root, .App {
-  background-color: white;
   height: 100vh;
   -webkit-overflow-scrolling: touch;
 }
