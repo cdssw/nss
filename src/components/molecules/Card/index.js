@@ -12,11 +12,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     boxSizing: 'border-box',
     padding: '10px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.12)'
+    borderBottom: '1px solid ' + theme.palette.action.disabledBackground
   },
   songTitle: {
     top: '31px',
-    fontSize: '13px'
+    fontSize: '14px',
+    color: theme.palette.text.secondary
   },
   songContent: {
     fontFamily: 'AppleSDGothicNeoB00',
@@ -24,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-    fontSize: '14px'
+    fontSize: '15px'
   },
   highlight: {
-    color: 'red',
+    color: theme.palette.error.light,
     fontWeight: 'bold',
   }
 }));

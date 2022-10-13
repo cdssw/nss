@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Header({userInfo, path, onLogout}) {
+export default function Header({userInfo, path, onLogout, onClear}) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <img className={classes.logo} src={resources.imgLogo2x} alt="logo" />
+      <img onClick={onClear} className={classes.logo} src={resources.imgLogo2x} alt="logo" />
       <div className={classes.space}></div>
       <div>
         <Link to={path} className={classes.link}>

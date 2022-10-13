@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px 0 20px 0',
   },
   loading: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: theme.palette.background.default,
     position: 'fixed',
     top: 0,
     left: 0,

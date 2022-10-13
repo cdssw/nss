@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'flex',
     justifyContent: 'center',
-    color: 'rgba(255, 255, 255, 0.3)'
+    color: theme.palette.action.disabled
   }
 }));
 
@@ -34,7 +34,7 @@ export default function LoginForm({username, password, onInput, onLogin}) {
   }
   return (
     <div className={classes.root}>
-      <div className={classes.title}>NSS 로그인</div>
+      <div className={classes.title}>Newsong Search 로그인</div>
       <div className={classes.passwordWrap}>
         <TextField
           type="number"

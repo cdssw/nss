@@ -93,12 +93,17 @@ export default function HomePage() {
     history.push("/");
   }
 
+  const handleClear = e => {
+    setSearch('');
+    setItems([]);
+  }
+
   const path = '/login';
 
   if(token === null) return <Redirect to='/login' />
   return (
     <PageTemplate 
-      header={<Header userInfo={userInfo} path={path} onLogout={handleLogout} />} 
+      header={<Header userInfo={userInfo} path={path} onLogout={handleLogout} onClear={handleClear} />} 
       search={
         <Search search={search} login={login}
           onKeyPress={handleKeyPressSearch}
