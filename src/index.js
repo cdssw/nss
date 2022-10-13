@@ -18,6 +18,7 @@ const theme = createTheme({
   },
   shadows: ["none"]
 });
+theme.shape.borderRadius = 15
 
 ReactDOM.render(
   <BrowserRouter>

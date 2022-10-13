@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   content: {
-    padding: '20px 20px',
+    flexGrow: 1,
+    padding: '60px 20px',
     maxWidth: '600px',
   },
   footerWrap: {
