@@ -9,7 +9,7 @@ export async function loginCall(props) {
     client_id: 'auth_id',
     scope: 'read write',
     common: 'common',
-    username: 'cdssw@naver.com',
+    username: 'nss@nss.com',
     ...props
   };
 
