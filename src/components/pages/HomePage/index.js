@@ -20,6 +20,7 @@ export default function HomePage() {
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if(token === null) {
       history.replace('/login');
     }

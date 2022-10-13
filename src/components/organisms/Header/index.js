@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   userName: {
     paddingRight: '5px',
   },
+  link: {
+    textDecoration: 'none'
+  }
 }));
 
 export default function Header({userInfo, path, onLogout}) {
@@ -31,7 +34,7 @@ export default function Header({userInfo, path, onLogout}) {
       <img className={classes.logo} src={resources.imgLogo2x} alt="logo" />
       <div className={classes.space}></div>
       <div>
-        <Link to={path}>
+        <Link to={path} className={classes.link}>
           <Button onClick={onLogout}>로그아웃</Button>
         </Link>
       </div>
