@@ -25,7 +25,6 @@ export default function Search({onSearch, search, onKeyPress, onClear}) {
     <div className={classes.root}>
       <div className={classes.searchWrap}>
         <TextField
-          autoFocus={true}
           fullWidth={true}
           variant="outlined"
           placeholder="검색어를 입력하세요."
