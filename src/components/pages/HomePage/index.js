@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 import { PageTemplate, Header, CardList, Search } from "components";
 import { useHistory, Redirect } from "react-router-dom";
 import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
 import { Alert } from '@material-ui/lab';
+import { useLayoutEffect } from 'react';
+import { useCallback } from 'react';
 
 export default function HomePage() {
   const history = useHistory();
@@ -19,14 +21,14 @@ export default function HomePage() {
   const size = 20;
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
     if(token === null) {
       history.replace('/login');
     }
   }, [history, token]);
 
-  const fetchMoreData = async init => {
+  const fetchMoreData = useCallback(async init => {
     if(Object.keys(param).length > 0) {
       setLoading(true);
       try {
@@ -51,13 +53,13 @@ export default function HomePage() {
         setLoading(false);
       }
     }
-  }
+  }, [page, items, param, token]);
 
-  useEffect(e => {
+  useLayoutEffect(e => {
     if(Object.keys(param).length > 0) {
       fetchMoreData(0);
     }
-  }, [param]);
+  }, [param, fetchMoreData]);
 
   useEffect(() => {
     return () => setLoading(false);
@@ -78,16 +80,6 @@ export default function HomePage() {
     });
   }
 
-  const handleSearchClick = e => {
-    setParam({
-      ...param,
-      query: search,
-      preTags: "<b>",
-      postTags: "</b>",
-      searchField: ["songContent"]
-    });
-  }
-
   const handleLogout = e => {
     localStorage.removeItem('token');
     history.push("/");
@@ -96,6 +88,7 @@ export default function HomePage() {
   const handleClear = e => {
     setSearch('');
     setItems([]);
+    setParam({});
   }
 
   const path = '/login';
@@ -108,7 +101,6 @@ export default function HomePage() {
         <Search search={search} login={login}
           onKeyPress={handleKeyPressSearch}
           onSearch={handleSearch}
-          onSearchClick={handleSearchClick}
           onClear={setSearch}
         />
       }
