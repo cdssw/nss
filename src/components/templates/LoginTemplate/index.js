@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
-    minHeight: '600px',
   }, 
   headerWrap: {
     flexBasis: '50px',
