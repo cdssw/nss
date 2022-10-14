@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CircularProgress } from '@material-ui/core';
 import * as resources from "constants/resources";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,18 +45,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     padding: '10px 0 20px 0',
   },
-  loading: {
-    backgroundColor: theme.palette.background.default,
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1,
-  },
   stretch: {
     flexGrow: 1,
   }
@@ -76,11 +63,6 @@ export default function LoginTemplate(props) {
       <div className={classes.stretch}></div>
       <div className={classes.contentWrap}>
         <section className={classes.content}>
-          {props.loading &&
-            <div className={classes.loading}>
-              <CircularProgress size={30} />
-            </div>
-          }
           {props.children}
         </section>
       </div>
