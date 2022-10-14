@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '100vh',
+    height: 'calc(var(--vh, 1vh) * 100)',
   }, 
   arrowWrap: {
     padding: '20px',
