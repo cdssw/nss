@@ -65,7 +65,6 @@ export default function LoginTemplate(props) {
           {props.children}
         </section>
       </div>
-      <div className={classes.stretch}></div>
     </div>
   );
 }
