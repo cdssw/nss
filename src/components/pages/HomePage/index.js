@@ -77,7 +77,7 @@ export default function HomePage(props) {
       prevState.items && setItems(prevState.items);
       prevState.search && setSearch(prevState.search);
       prevState.page && setPage(prevState.page);
-      prevState.param && setPage(prevState.param);
+      prevState.param && setParam(prevState.param);
     }
   }, [prevState]);
 
