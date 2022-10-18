@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     boxSizing: 'border-box',
-    padding: '10px',
     textAlign: 'center',
   },
   songTitle: {
@@ -41,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     fontSize: '13px',
-    color: theme.palette.action.disabled
+    color: theme.palette.action.disabled,
+    alignItems: 'end',
   }
 }));
 
@@ -54,9 +54,9 @@ export default function Content(props) {
     <div className={classes.root}>
       {data &&
         <div className={classes.content}>
-          <div className={classes.songTitle}>{data[0].source.songTitle}</div>
           <div className={classes.addedInfo}>
             <div>{data[0].source.category}</div>
+            <div className={classes.songTitle}>{data[0].source.songTitle}</div>
             <div>{data[0].source.duration}</div>
           </div>
           <div className={classes.space}></div>

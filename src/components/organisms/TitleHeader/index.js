@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     maxWidth: '600px',
-    padding: '0 20px',
+    padding: '0 13px 0 12px',
     height: '100%',
     flex: 1,
   },

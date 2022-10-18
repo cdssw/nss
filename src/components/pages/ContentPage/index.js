@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PageTemplate, TitleHeader, Content } from "components";
 import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 export default function ContentPage(props) {
   const history = useHistory();
