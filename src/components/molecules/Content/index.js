@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Content(props) {
   const classes = useStyles();
 
-  const data = Object.keys(props.content).length > 0 && props.content.data.content;
+  const data = Object.keys(props.contents).length > 0 && props.content.data.content;
 
   return (
     <div className={classes.root}>
