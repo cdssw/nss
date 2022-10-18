@@ -28,7 +28,7 @@ export default function ContentPage(props) {
 
   useEffect(() => {
     postSearchOne(token);
-  }, [token]);
+  }, [token, param]);
 
   const postSearchOne = async token => {
     if(Object.keys(param).length > 0) {
