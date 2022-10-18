@@ -71,7 +71,7 @@ export default function Content(props) {
                           if(m.split("</b>").length > 1) {
                             return (
                               <Fragment key={index}>
-                                <span className={classes.highlight}>{m.space("</b>")[0]}</span>
+                                <span className={classes.highlight}>{m.split("</b>")[0]}</span>
                                 {m.split("</b>")[1]}
                               </Fragment>
                             )
