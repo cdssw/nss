@@ -16,6 +16,13 @@ const theme = createTheme({
   palette: {
     type: "dark"
   },
+  overrides: {
+    MuiIconButton: {
+      root: {
+        padding: 0
+      }
+    }
+  },
   shadows: ["none"]
 });
 theme.shape.borderRadius = 15
