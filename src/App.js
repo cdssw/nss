@@ -3,7 +3,8 @@ import './App.css';
 import { Route, Switch } from "react-router-dom";
 import { 
   LoginPage, 
-  HomePage, 
+  HomePage,
+  ContentPage
 } from "components";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage}/>
         <Route exact path="/login" component={LoginPage}/>
+        <Route exact path="/content/:songNo" component={ContentPage}/>
       </Switch>
     </div>
   );

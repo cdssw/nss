@@ -5,6 +5,7 @@ export const eyeBlocked = "/images/eye-blocked.svg";
 export const search = '/images/search.svg';
 export const login = "/images/login.svg";
 export const logout = "/images/logout.svg";
+export const arrowLeft = "/images/arrow-left.svg";
 
 // img
 export const imgLogo2x = '/images/logo.png';

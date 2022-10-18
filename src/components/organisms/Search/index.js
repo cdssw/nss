@@ -29,7 +29,7 @@ export default function Search({onSearch, search, onKeyPress, onClear}) {
           variant="outlined"
           placeholder="검색어를 입력하세요."
           name="search"
-          type="search"
+          type="text"
           value={search}
           onChange={onSearch}
           onKeyPress={onKeyPress}

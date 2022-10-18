@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import * as resources from "constants/resources";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   logoWrap: {
     display: 'flex',
     justifyContent: 'center',
-    padding: '50px',
   },
   logo: {
     width: '154px',
@@ -50,7 +48,6 @@ export default function LoginTemplate(props) {
     <div className={classes.root}>
       <div className={classes.logoWrap}>
         <div className={classes.logoTitle}>NSS</div>
-        {/* <img className={classes.logo} src={resources.imgLogoLarge2x} alt="logo" /> */}
       </div>
       <div className={classes.stretch}></div>
       <div className={classes.contentWrap}>

@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
     borderBottom: '1px solid ' + theme.palette.action.disabledBackground
   },
+  titleWrap: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
   songTitle: {
     top: '31px',
     fontSize: '14px',
@@ -33,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Card({item}) {
+export default function Card({item, onContentClick}) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={onContentClick}>
       <div className={classes.content}>
         <div className={classes.songContent}>
           {item.highlight.songContent
@@ -56,7 +60,10 @@ export default function Card({item}) {
             : item.source.songContent
           }
         </div>
-        <div className={classes.songTitle}>새노래 {item.source.songNo}장 {item.source.songTitle}</div>
+        <div className={classes.titleWrap}>
+          <div className={classes.songTitle}>{item.source.songNo}장 {item.source.songTitle}</div>
+          <div className={classes.songTitle}>{item.source.duration}</div>
+        </div>
       </div>
     </div>
   );

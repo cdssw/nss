@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
+    backgroundColor: theme.palette.background.default
   },
   headerWrapSearch: {
     display: 'flex',
@@ -31,21 +32,19 @@ const useStyles = makeStyles((theme) => ({
   contentWrap: {
   },
   contentSearch: {
-    margin: '110px auto 0',
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    padding: '0 20px',
+    padding: '110px 20px 0',
   },
   content: {
-    margin: '60px auto 0',
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     maxWidth: '600px',
-    padding: '0 20px',
+    padding: '60px 20px 0',
   },
   loading: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
