@@ -12,7 +12,7 @@ export default function ContentPage(props) {
   const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")).access_token : null;
   const state = props.location.state;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
     if(token === null) {
       history.replace('/login');
