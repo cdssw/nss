@@ -4,7 +4,7 @@ import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
 import { useHistory } from "react-router-dom";
 
-export default function ContentPage() {
+export default function ContentPage(props) {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [contents, setContents] = useState({});
