@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     flex: 1,
   },
-  arrowWrap: {
-    left: '-10px',
-  },
   title: {
     fontFamily: 'AppleSDGothicNeoL00',
     textAlign: 'center',
@@ -38,7 +35,6 @@ export default function TitleHeader(props) {
     <div className={classes.root}>
       <IconButton
         onClick={handleBack}
-        className={{root: classes.arrowWrap}}
       >
         <img src={resources.arrowLeft} alt="arrowLeft" />
       </IconButton>
