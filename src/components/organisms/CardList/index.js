@@ -24,10 +24,12 @@ export default function CardList(props) {
           {props.items.map((item, index) => (
             <Card key={index} item={item}
               onContentClick={() => {
+                  let state = {search: props.search, items: props.items, param: props.param, page: props.page};
+                  history.replace(undefined, {...state});
                   history.push({
                     pathname: '/content/' + item.source.songNo,
                     path: props.path,
-                    state: {search: props.search, items: props.items, param: props.param, page: props.page}
+                    state: state
                   });
                 }
               }

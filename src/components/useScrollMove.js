@@ -19,7 +19,7 @@ export default function useScrollMove({path, dom}) {
 
     useEffect(() => {
         return history.listen((location) => {
-            if(location.pathname !== path) {
+            if(location.pathname !== path && location.pathname !== "/login") {
                 savePos();
             }
         });

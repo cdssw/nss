@@ -35,12 +35,9 @@ export default function HomePage(props) {
 
   // 뒤로가기로 왔을때 scroll 복구
   useEffect(() => {
-    if(pos) {
+    if(items.length > 0 && pos !== 0) {
       window.scrollTo(0, pos);
-      const scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-      if(scrollTop === pos) {
-        removePos();
-      }
+      removePos();
     }
   }, [pos, removePos, items]);
 
@@ -111,7 +108,7 @@ export default function HomePage(props) {
 
   const handleLogout = e => {
     localStorage.removeItem('token');
-    history.push("/");
+    removePos();
   }
 
   const handleClear = e => {
