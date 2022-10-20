@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   songTitle: {
     top: '31px',
-    fontSize: '15px',
+    fontSize: '16px',
     fontFamily: 'AppleSDGothicNeoB00',
     color: theme.palette.text.secondary
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-    fontSize: '14px'
+    fontSize: '15px'
   },
   highlight: {
     color: theme.palette.error.light,
