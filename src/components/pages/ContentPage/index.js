@@ -3,6 +3,7 @@ import { PageTemplate, TitleHeader, Content } from "components";
 import * as Newsong from "../../../services/Newsong";
 import Utils from "../../Utils";
 import { useHistory, Redirect } from "react-router-dom";
+import AddedInfo from '../../organisms/AddedInfo';
 
 export default function ContentPage(props) {
   const history = useHistory();
@@ -55,7 +56,10 @@ export default function ContentPage(props) {
 
   if(token === null) return <Redirect to='/login' />
   return (
-    <PageTemplate header={<TitleHeader onBack={handleBack} {...props}>새노래 {contents.data && contents.data.content[0].source.songNo}장</TitleHeader>} loading={loading}>
+    <PageTemplate
+      header={<TitleHeader onBack={handleBack} {...props}>새노래 {contents.data && contents.data.content[0].source.songNo}장</TitleHeader>} loading={loading}
+      addedInfo={<AddedInfo contents={contents} />}
+    >
       <Content contents={contents} />
     </PageTemplate>
   );

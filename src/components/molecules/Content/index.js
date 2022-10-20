@@ -42,6 +42,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '13px',
     color: theme.palette.action.disabled,
     alignItems: 'end',
+  },
+  addLeft: {
+    width: '40px',
+    textAlign: 'left',
+  },
+  addRight: {
+    width: '40px',
+    textAlign: 'right',
   }
 }));
 
@@ -54,12 +62,6 @@ export default function Content(props) {
     <div className={classes.root}>
       {data &&
         <div className={classes.content}>
-          <div className={classes.addedInfo}>
-            <div>{data[0].source.category}</div>
-            <div className={classes.songTitle}>{data[0].source.songTitle}</div>
-            <div>{data[0].source.duration}</div>
-          </div>
-          <div className={classes.space}></div>
           <div className={classes.songContent}>
             {
               data.map((c, i) => {

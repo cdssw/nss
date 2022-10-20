@@ -21,34 +21,43 @@ const useStyles = makeStyles((theme) => ({
 export default function Search({onSearch, search, onKeyPress, onClear}) {
   const classes = useStyles();
 
+  const handleSearch = e => {
+    if(e.keyCode === 13) {
+      e.target.blur();
+      onKeyPress(e);
+    }
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.searchWrap}>
-        <TextField
-          fullWidth={true}
-          variant="outlined"
-          placeholder="검색어를 입력하세요."
-          name="search"
-          type="text"
-          value={search}
-          onChange={onSearch}
-          onKeyPress={onKeyPress}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-            endAdornment: search && (
-              <IconButton
-                aria-label="toggle passwor visibility"
-                onClick={() => onClear("")}
-              >
-                <CancelRoundedIcon />
-              </IconButton>
-            ),
-          }}
-        />
+        <form action="">
+          <TextField
+            fullWidth={true}
+            variant="outlined"
+            placeholder="검색어를 입력하세요."
+            name="search"
+            type="search"
+            value={search}
+            onChange={onSearch}
+            onKeyDown={(e) => handleSearch(e)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: search && (
+                <IconButton
+                  aria-label="toggle passwor visibility"
+                  onClick={() => onClear("")}
+                >
+                  <CancelRoundedIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </form>
       </div>
     </div>
   );

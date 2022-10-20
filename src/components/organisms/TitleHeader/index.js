@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   space: {
-    width: '34px',
+    width: '24px',
   }
 }));
 

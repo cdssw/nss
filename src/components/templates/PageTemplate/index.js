@@ -8,9 +8,10 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrap: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     position: 'fixed',
-    height: '60px',
+    height: '110px',
     zIndex: '1000',
     top: 0,
     left: 0,
@@ -30,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default
   },
   contentWrap: {
+    display: 'flex',
+    justifyContent: 'center',
   },
   contentSearch: {
     flexGrow: 1,
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     flexDirection: 'column',
     maxWidth: '600px',
-    padding: '60px 20px 0',
+    padding: '110px 20px 0',
   },
   loading: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -86,6 +89,7 @@ export default function PageTemplate(props) {
         <>
           <header className={classes.headerWrap}>
             {props.header}
+            {props.addedInfo}
           </header>
           <section className={classes.contentWrap}>
             <div className={classes.content}>
